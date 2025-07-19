@@ -57,16 +57,16 @@ export default function Header() {
         fixed top-4 left-1/2 transform -translate-x-1/2
         bg-background/20 backdrop-blur-md rounded-full shadow-lg
         w-[90%] max-w-[900px]
-        flex items-center px-6 py-3 z-50
+        flex items-center px-6 py-1 z-50
       "
     >
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full mt-1">
         {navLinks.map((link, index) => (
           <React.Fragment key={link.id}>
             {/* Node */}
             <div
               onClick={() => handleScrollTo(link.target, index)}
-              className="flex flex-col items-center cursor-pointer gap-2.5"
+              className="flex flex-col items-center cursor-pointer gap-1"
             >
               <motion.div
                 className={clsx(
