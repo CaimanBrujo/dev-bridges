@@ -5,10 +5,10 @@ import { Mail, Globe, Code, Database, Settings, Wrench, Palette } from 'lucide-r
 
 export function Footer() {
   return (
-    <footer className="relative bg-dark text-primary px-6 lg:px-20 py-16">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer className="relative bg-transparent text-primary px-6 lg:px-20 py-16">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-muted pt-8">
         {/* Contact Section */}
-        <div>
+        <div className="mx-10">
           <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
             <Mail size={18} /> Contact
           </h4>
@@ -16,7 +16,7 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-primary" />
               <a
-                href="mailto:hello@developingbridges.com"
+                href="mailto:contact@developingbridges.com"
                 className="hover:underline hover:text-accent transition-colors duration-200"
               >
                 contact@developingbridges.com
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         {/* Tech Stack Section */}
-        <div>
+        <div className="mx-10">
           <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
             <Code size={18} /> Tech Stack
           </h4>
@@ -76,7 +76,7 @@ export function Footer() {
       </div>
 
       {/* Footer bottom */}
-      <div className="mt-12 text-center text-xs text-muted border-t border-muted pt-4">
+      <div className="max-w-8xl mx-auto mt-8 text-center text-xs text-muted border-t border-muted pt-4">
         © {new Date().getFullYear()} Developing Bridges. All rights reserved.
       </div>
     </footer>

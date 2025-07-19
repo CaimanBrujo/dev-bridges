@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function BackgroundBlobs() {
   return (
-    <div className="absolute top-0 left-0 w-full h-[400vh] -z-10 overflow-hidden">
+    <div className="absolute top-0 left-0 w-full h-[495vh] md:h-[475vh] -z-10 overflow-hidden">
       {/* Dark background */}
       <div className="absolute inset-0 bg-background" />
 
