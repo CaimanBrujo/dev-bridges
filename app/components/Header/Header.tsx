@@ -18,13 +18,19 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const newIndex = navLinks.findIndex((link) => {
-        const section = document.getElementById(link.target);
-        if (!section) return false;
+      let newIndex = 0;
+
+      for (let i = 0; i < navLinks.length; i++) {
+        const section = document.getElementById(navLinks[i].target);
+        if (!section) continue;
+
         const { top, bottom } = section.getBoundingClientRect();
-        return top <= window.innerHeight / 2 && bottom >= 0;
-      });
-      if (newIndex !== -1 && newIndex !== activeIndex) {
+        if (top <= window.innerHeight / 2 && bottom >= 0) {
+          newIndex = i;
+        }
+      }
+
+      if (newIndex !== activeIndex) {
         setActiveIndex(newIndex);
       }
     };
@@ -40,10 +46,9 @@ export default function Header() {
           <NavLink
             label={link.label}
             isActive={activeIndex === index}
-            isConnected={activeIndex >= index}
+            isConnected={activeIndex >= index} // All previous nodes remain connected
             onClickAction={() => handleScrollTo(link.target, index)}
           />
-
           {index < navLinks.length - 1 && <NodeConnector isActive={activeIndex > index} />}
         </div>
       ))}

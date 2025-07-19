@@ -4,7 +4,10 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen bg-background text-primary overflow-hidden">
+    <section
+      id="section-0"
+      className="relative flex flex-col items-center justify-center min-h-screen bg-background text-primary overflow-hidden"
+    >
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-accent to-primary opacity-30 blur-3xl animate-pulse" />
       <div className="absolute -bottom-20 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-surface to-muted opacity-20 blur-2xl animate-pulse delay-200" />
 
