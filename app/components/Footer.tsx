@@ -2,11 +2,23 @@
 
 import React from 'react';
 import { Mail, Globe, Code, Database, Settings, Wrench, Palette } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className="relative bg-transparent text-primary px-6 lg:px-20 py-16">
-      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-muted pt-8">
+    <footer className="relative bg-transparent text-primary px-6 lg:px-20 py-16 overflow-hidden">
+      {/* Logo as background */}
+      <div className="absolute inset-0 flex justify-center items-center opacity-3 pointer-events-none">
+        <Image
+          src="/logo/logo.svg"
+          alt="Developing Bridges Logo Background"
+          width={300}
+          height={300}
+          className="w-96 md:w-[350px]"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-muted pt-8">
         {/* Contact Section */}
         <div className="mx-10">
           <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
@@ -76,7 +88,7 @@ export function Footer() {
       </div>
 
       {/* Footer bottom */}
-      <div className="max-w-8xl mx-auto mt-8 text-center text-xs text-muted border-t border-muted pt-4">
+      <div className="relative z-10 max-w-8xl mx-auto mt-8 text-center text-xs text-muted border-t border-muted pt-4">
         © {new Date().getFullYear()} Developing Bridges. All rights reserved.
       </div>
     </footer>
