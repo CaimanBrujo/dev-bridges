@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 const navLinks = [
   { id: 0, label: 'Home', target: 'section-0' },
-  { id: 1, label: 'Service', target: 'section-1' },
+  { id: 1, label: 'Services', target: 'section-1' },
   { id: 2, label: 'About Us', target: 'section-2' },
   { id: 3, label: 'Contact', target: 'section-3' },
 ];
@@ -48,7 +48,11 @@ export default function Header() {
   }, [activeIndex]);
 
   return (
-    <nav
+    <motion.nav
+      // Animate the whole header container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, delay: 5.5, ease: 'easeOut' }} // Fade in after 5s
       className="
         fixed top-4 left-1/2 transform -translate-x-1/2
         bg-background/20 backdrop-blur-md rounded-full shadow-lg
@@ -105,6 +109,6 @@ export default function Header() {
           </React.Fragment>
         ))}
       </div>
-    </nav>
+    </motion.nav>
   );
 }
