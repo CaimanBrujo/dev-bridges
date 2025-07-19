@@ -21,20 +21,28 @@ export default function Hero() {
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p
-          className="text-muted text-4xl max-w-2xl mb-8 overflow-hidden relative"
-          initial={{ clipPath: 'inset(0 100% 0 0)' }}
-          animate={{ clipPath: 'inset(0 0% 0 0)' }}
-          transition={{ duration: 2.8, delay: 1.2, ease: 'easeInOut' }}
-        >
-          We bring technology closer to you.
+        <motion.p className="text-muted text-4xl max-w-2xl mb-8 relative flex justify-center gap-2 flex-wrap">
+          <motion.span
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, delay: 1.2, ease: 'easeOut' }}
+          >
+            We bring technology
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2, delay: 1.2, ease: 'easeOut' }}
+          >
+            closer to you.
+          </motion.span>
         </motion.p>
 
         {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, z: -50 }}
           animate={{ opacity: 1, scale: 1, z: 0 }}
-          transition={{ duration: 2, delay: 4.3, ease: 'easeOut' }}
+          transition={{ duration: 2, delay: 3, ease: 'easeOut' }}
         >
           <button className="bg-accent px-6 py-3 rounded-full hover:scale-115 text-primary transition">
             Get Started

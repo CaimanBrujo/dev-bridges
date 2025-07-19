@@ -52,7 +52,7 @@ export default function Header() {
       // Animate the whole header container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.5, delay: 5.5, ease: 'easeOut' }} // Fade in after 5s
+      transition={{ duration: 1.5, delay: 4, ease: 'easeOut' }} // Fade in after 5s
       className="
         fixed top-4 left-1/2 transform -translate-x-1/2
         bg-background/20 backdrop-blur-md rounded-full shadow-lg
