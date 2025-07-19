@@ -104,6 +104,7 @@ export default function Services() {
               alt={service.title}
               width={140}
               height={140}
+              priority={activeTab === service.id} // PRIORITY ONLY FOR ACTIVE
               className="w-28 h-28 md:w-36 md:h-36 object-contain"
             />
             <span
