@@ -13,9 +13,9 @@ const navLinks = [
 
 export default function Header() {
   const [activeIndex, setActiveIndex] = useState(0); // Active section index
+  const [showHeader, setShowHeader] = useState(false); // Controls header visibility
 
   const handleScrollTo = (target: string, index: number) => {
-    // Scroll to target section and update active index
     const el = document.getElementById(target);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -25,7 +25,6 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Detect active section on scroll
       let newIndex = 0;
 
       for (let i = 0; i < navLinks.length; i++) {
@@ -41,18 +40,31 @@ export default function Header() {
       if (newIndex !== activeIndex) {
         setActiveIndex(newIndex);
       }
+
+      // If user scrolls early, show header immediately
+      if (!showHeader) {
+        setShowHeader(true);
+      }
     };
 
+    // Set timeout to show header after 4s if no scroll happens
+    const timer = setTimeout(() => {
+      setShowHeader(true);
+    }, 4000);
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
-  }, [activeIndex]);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [activeIndex, showHeader]);
 
   return (
     <motion.nav
-      // Animate the whole header container
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5, delay: 4, ease: 'easeOut' }} // Fade in after 5s
+      animate={{ opacity: showHeader ? 1 : 0 }}
+      transition={{ duration: 1.5, ease: 'easeOut' }}
       className="
         fixed top-4 left-1/2 transform -translate-x-1/2
         bg-background/20 backdrop-blur-md rounded-full shadow-lg
