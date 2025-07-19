@@ -51,7 +51,7 @@ export default function Header() {
         fixed top-4 left-1/2 transform -translate-x-1/2
         bg-background/80 backdrop-blur-md rounded-full shadow-lg
         w-[90%] max-w-[900px]
-        flex items-center px-6 py-4 z-50
+        flex items-center px-6 py-3 z-50
       "
     >
       <div className="flex items-center w-full">
@@ -60,19 +60,19 @@ export default function Header() {
             {/* Node */}
             <div
               onClick={() => handleScrollTo(link.target, index)}
-              className="flex flex-col items-center cursor-pointer gap-3"
+              className="flex flex-col items-center cursor-pointer gap-2.5"
             >
               <motion.div
                 className={clsx(
-                  'w-3 h-3 rounded-full border-2',
+                  'w-2.5 h-2.5 rounded-full border-2',
                   activeIndex >= index ? 'bg-accent border-accent' : 'border-primary',
                 )}
-                animate={{ scale: activeIndex === index ? 1.5 : 1 }}
+                animate={{ scale: activeIndex === index ? 1.4 : 1 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 15 }}
               />
               <span
                 className={clsx(
-                  'mt-1 text-2 select-none',
+                  'mt-0.5 text-sm select-none',
                   activeIndex === index ? 'text-accent' : 'text-muted',
                 )}
               >
@@ -84,7 +84,7 @@ export default function Header() {
             {index < navLinks.length - 1 && (
               <motion.div
                 className={clsx(
-                  'h-1 rounded-full flex-grow -translate-y-5',
+                  'h-1 rounded-full flex-grow -translate-y-4',
                   activeIndex > index ? 'bg-accent' : 'bg-primary',
                 )}
                 initial={{ scaleX: 0 }}
