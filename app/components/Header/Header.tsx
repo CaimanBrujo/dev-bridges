@@ -12,9 +12,10 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0); // Active section index
 
   const handleScrollTo = (target: string, index: number) => {
+    // Scroll to target section and update active index
     const el = document.getElementById(target);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -24,6 +25,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Detect active section on scroll
       let newIndex = 0;
 
       for (let i = 0; i < navLinks.length; i++) {
@@ -42,14 +44,14 @@ export default function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
   }, [activeIndex]);
 
   return (
     <nav
       className="
         fixed top-4 left-1/2 transform -translate-x-1/2
-        bg-background/80 backdrop-blur-md rounded-full shadow-lg
+        bg-background/20 backdrop-blur-md rounded-full shadow-lg
         w-[90%] max-w-[900px]
         flex items-center px-6 py-3 z-50
       "
@@ -72,7 +74,7 @@ export default function Header() {
               />
               <span
                 className={clsx(
-                  'mt-0.5 text-sm select-none',
+                  'mt-0.5 text-1 select-none',
                   activeIndex === index ? 'text-accent' : 'text-muted',
                 )}
               >
@@ -89,7 +91,14 @@ export default function Header() {
                 )}
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: activeIndex > index ? 1 : 0 }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
+                transition={{
+                  duration: 0.2,
+                  ease: 'easeOut',
+                  delay:
+                    activeIndex > index
+                      ? index * 0.2 // connecting forward
+                      : (navLinks.length - index) * 0.1, // disconnecting backward
+                }}
                 style={{ transformOrigin: 'left' }}
               />
             )}
