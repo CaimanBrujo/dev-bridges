@@ -1,0 +1,84 @@
+'use client';
+
+import React from 'react';
+import { Mail, Globe, Code, Database, Settings, Wrench, Palette } from 'lucide-react';
+
+export function Footer() {
+  return (
+    <footer className="relative bg-dark text-primary px-6 lg:px-20 py-16">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Contact Section */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
+            <Mail size={18} /> Contact
+          </h4>
+          <ul className="space-y-3 text-sm text-muted">
+            <li className="flex items-center gap-2">
+              <Mail size={16} className="text-primary" />
+              <a
+                href="mailto:hello@developingbridges.com"
+                className="hover:underline hover:text-accent transition-colors duration-200"
+              >
+                contact@developingbridges.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Globe size={16} className="text-primary" />
+              <span>Worldwide</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Tech Stack Section */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
+            <Code size={18} /> Tech Stack
+          </h4>
+          <div className="space-y-3">
+            <div>
+              <span className="flex items-center gap-2 text-muted font-medium">
+                <Code size={14} /> Frontend
+              </span>
+              <p className="text-sm text-primary mt-1">
+                Next.js, React, TypeScript, Tailwind CSS, HTML5, CSS3
+              </p>
+            </div>
+            <div>
+              <span className="flex items-center gap-2 text-muted font-medium">
+                <Settings size={14} /> Backend
+              </span>
+              <p className="text-sm text-primary mt-1">
+                Node.js, Express, REST APIs, Supabase, BaaS
+              </p>
+            </div>
+            <div>
+              <span className="flex items-center gap-2 text-muted font-medium">
+                <Database size={14} /> Databases
+              </span>
+              <p className="text-sm text-primary mt-1">PostgreSQL, MongoDB</p>
+            </div>
+            <div>
+              <span className="flex items-center gap-2 text-muted font-medium">
+                <Wrench size={14} /> Tools
+              </span>
+              <p className="text-sm text-primary mt-1">
+                Git & GitHub, Vercel, Railway, Jest, Webpack, Vite, ESLint, Prettier
+              </p>
+            </div>
+            <div>
+              <span className="flex items-center gap-2 text-muted font-medium">
+                <Palette size={14} /> Design
+              </span>
+              <p className="text-sm text-primary mt-1">Figma, Photoshop</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer bottom */}
+      <div className="mt-12 text-center text-xs text-muted border-t border-muted pt-4">
+        © {new Date().getFullYear()} Developing Bridges. All rights reserved.
+      </div>
+    </footer>
+  );
+}
