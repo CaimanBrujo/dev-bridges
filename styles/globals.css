@@ -9,3 +9,7 @@
   --color-surface: #182c38;
   --color-neutral: #23221f;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -61,9 +61,12 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1, z: 0 }}
           transition={{ duration: 2, delay: 3, ease: 'easeOut' }}
         >
-          <button className="bg-accent px-6 py-3 rounded-full hover:scale-115 text-primary transition">
+          <a
+            href="#section-3"
+            className="bg-accent px-6 py-3 rounded-full hover:scale-115 text-primary transition"
+          >
             Get Started
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
