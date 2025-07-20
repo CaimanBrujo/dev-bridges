@@ -1,6 +1,7 @@
 import Hero from './components/Hero';
 import Header from './components/Header';
 import Services from './components/Services';
+import About from './components/About';
 import { Footer } from './components/Footer';
 
 export default function Home() {
@@ -9,12 +10,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
-      <section
-        id="section-2"
-        className="min-h-screen flex items-center justify-center text-primary"
-      >
-        <h1 className="text-5xl">About Us</h1>
-      </section>
+      <About />
       <section
         id="section-3"
         className="min-h-screen flex items-center justify-center text-primary"
