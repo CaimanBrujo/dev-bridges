@@ -22,7 +22,7 @@ export function Footer() {
         {/* Contact Section */}
         <div className="flex flex-col justify-center sm:items-center">
           <div className=" text-left">
-            <h4 className="text-lg font-semibold mb-4 text-accent flex gap-2">
+            <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
               <Mail size={18} /> Contact
             </h4>
             <ul className="space-y-3 text-sm text-muted">
