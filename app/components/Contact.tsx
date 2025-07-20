@@ -11,6 +11,9 @@ export default function Contact() {
     projectType: '',
     message: '',
   });
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(true);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -28,11 +31,14 @@ export default function Contact() {
     });
 
     if (res.ok) {
-      alert('Thanks for reaching out! We’ll get back to you soon.');
+      setModalMessage('Thanks for reaching out! We’ll get back to you ASAP.');
+      setIsSuccess(true);
       setFormData({ name: '', email: '', projectType: '', message: '' });
     } else {
-      alert('Something went wrong. Please try again later.');
+      setModalMessage('Something went wrong. Please try again later.');
+      setIsSuccess(false);
     }
+    setShowModal(true);
   };
 
   return (
@@ -152,6 +158,31 @@ export default function Contact() {
           Send Message
         </button>
       </motion.form>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-muted/10 rounded-2xl shadow-xl p-8 md:p-10 w-full max-w-md text-center">
+            <Image
+              src="/logo/logo.svg"
+              alt="Developing Bridges Logo"
+              width={100}
+              height={100}
+              className="mx-auto mb-4"
+            />
+            <h3 className={`text-2xl font-bold mb-2 ${isSuccess ? 'text-accent' : 'text-red-500'}`}>
+              {isSuccess ? 'Message Recieved' : 'Oops!'}
+            </h3>
+            <p className="text-primary mb-6">{modalMessage}</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-accent text-primary px-6 py-2 rounded-xl font-semibold hover:scale-105 transition-transform"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </motion.section>
   );
 }
