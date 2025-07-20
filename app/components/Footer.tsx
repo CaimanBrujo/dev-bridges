@@ -18,11 +18,11 @@ export function Footer() {
         />
       </div>
 
-      <div className="relative z-10 max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-muted pt-8">
+      <div className="relative z-10 max-w-8xl grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-muted pt-8">
         {/* Contact Section */}
-        <div className="flex flex-col justify-center items-center">
-          <div className="mx-10 text-left">
-            <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
+        <div className="flex flex-col justify-center sm:items-center">
+          <div className=" text-left">
+            <h4 className="text-lg font-semibold mb-4 text-accent flex gap-2">
               <Mail size={18} /> Contact
             </h4>
             <ul className="space-y-3 text-sm text-muted">
@@ -44,8 +44,8 @@ export function Footer() {
         </div>
 
         {/* Tech Stack Section */}
-        <div className="flex flex-col justify-center items-center">
-          <div className="mx-10 text-left">
+        <div className="flex flex-col justify-center sm:items-center">
+          <div className="text-left">
             <h4 className="text-lg font-semibold mb-4 text-accent flex items-center gap-2">
               <Code size={18} /> Tech Stack
             </h4>
