@@ -2,6 +2,7 @@ import Hero from './components/Hero';
 import Header from './components/Header';
 import Services from './components/Services';
 import About from './components/About';
+import Contact from './components/Contact';
 import { Footer } from './components/Footer';
 
 export default function Home() {
@@ -11,12 +12,7 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
-      <section
-        id="section-3"
-        className="min-h-screen flex items-center justify-center text-primary"
-      >
-        <h1 className="text-5xl">Contact</h1>
-      </section>
+      <Contact />
       <Footer />
     </main>
   );
