@@ -5,6 +5,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Hero() {
+  const scrollToContact = () => {
+    const section = document.getElementById('section-3');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="section-0"
@@ -61,12 +68,12 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1, z: 0 }}
           transition={{ duration: 2, delay: 3, ease: 'easeOut' }}
         >
-          <a
-            href="#section-3"
+          <button
+            onClick={scrollToContact}
             className="bg-accent px-6 py-3 rounded-full hover:scale-115 text-primary transition"
           >
             Get Started
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

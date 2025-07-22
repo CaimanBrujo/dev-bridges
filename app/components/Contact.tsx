@@ -24,20 +24,34 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const formDataEncoded = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataEncoded.append(key, value);
+      });
 
-    if (res.ok) {
-      setModalMessage('Thanks for reaching out! We’ll get back to you ASAP.');
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', projectType: '', message: '' });
-    } else {
+      const res = await fetch('https://formspree.io/f/xwpqlvge', {
+        method: 'POST',
+        body: formDataEncoded,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (res.ok) {
+        setModalMessage('Thanks for reaching out! We’ll get back to you ASAP.');
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', projectType: '', message: '' });
+      } else {
+        setModalMessage('Something went wrong. Please try again later.');
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      console.error(error);
       setModalMessage('Something went wrong. Please try again later.');
       setIsSuccess(false);
     }
+
     setShowModal(true);
   };
 
@@ -171,7 +185,7 @@ export default function Contact() {
               className="mx-auto mb-4"
             />
             <h3 className={`text-2xl font-bold mb-2 ${isSuccess ? 'text-accent' : 'text-red-500'}`}>
-              {isSuccess ? 'Message Recieved' : 'Oops!'}
+              {isSuccess ? 'Message Received' : 'Oops!'}
             </h3>
             <p className="text-primary mb-6">{modalMessage}</p>
             <button
